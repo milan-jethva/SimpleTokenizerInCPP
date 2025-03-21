@@ -48,7 +48,6 @@ vector<int> tokenize(const string& text, const unordered_map<string, int>& bpe_v
     return token_ids;
 }
 
-// Driver code
 int main() {
     string vocab_file = "vocab.txt";
     unordered_map<string, int> bpe_vocab = load_vocab(vocab_file);
