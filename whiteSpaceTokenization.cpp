@@ -41,7 +41,6 @@ vector<int> tokenize_whitespace(const string& text, const unordered_map<string, 
     return token_ids;
 }
 
-// Driver code
 int main() {
     string vocab_file = "vocab.txt";
     unordered_map<string, int> vocab = load_vocab(vocab_file);
