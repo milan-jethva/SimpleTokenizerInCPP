@@ -59,7 +59,6 @@ vector<int> tokenize_wordpiece(const string& word, const unordered_map<string, i
     return token_ids;
 }
 
-// Driver code
 int main() {
     string vocab_file = "vocab.txt";
     unordered_map<string, int> vocab = load_vocab(vocab_file);
