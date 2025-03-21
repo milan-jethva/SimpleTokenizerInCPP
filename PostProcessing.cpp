@@ -35,16 +35,12 @@ void saveTokensToFile(const std::vector<int>& token_ids, const std::string& file
 }
 
 int main() {
-    // 🔹 Example: Input token IDs from a tokenizer
     std::vector<int> token_ids = {7592, 2088, 2003, 1037, 2146};  // Example: "Hello world is a test"
 
-    // 🔹 Apply post-processing
     std::vector<int> processed_tokens = postProcessTokens(token_ids, 10);
 
-    // 🔹 Save processed token IDs to a file
     saveTokensToFile(processed_tokens, "tokens.txt");
 
-    // 🔹 Output
     std::cout << "Processed tokens saved successfully!" << std::endl;
     return 0;
 }
