@@ -3,13 +3,11 @@
 #include <unordered_map>
 #include <string>
 
-// Example vocabulary mapping token IDs to words
 std::unordered_map<int, std::string> vocab = {
     {101, "[CLS]"}, {102, "[SEP]"}, {0, "[PAD]"}, {7592, "Hello"}, {2088, "world"},
     {2003, "is"}, {1037, "a"}, {2146, "test"}, {999, "!"}, {103, "##ing"} 
 };
 
-// Function to decode token IDs back to text
 std::string decodeTokens(const std::vector<int>& token_ids) {
     std::string decoded_text;
     for (int token_id : token_ids) {
