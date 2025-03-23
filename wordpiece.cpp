@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Function to load WordPiece vocabulary from file
 unordered_map<string, int> load_vocab(const string& filename) {
     unordered_map<string, int> vocab;
     ifstream file(filename);
@@ -25,7 +24,6 @@ unordered_map<string, int> load_vocab(const string& filename) {
     return vocab;
 }
 
-// Function to tokenize text using WordPiece
 vector<int> tokenize_wordpiece(const string& word, const unordered_map<string, int>& vocab) {
     vector<int> token_ids;
     int len = word.size();
@@ -47,7 +45,6 @@ vector<int> tokenize_wordpiece(const string& word, const unordered_map<string, i
             --end;
         }
 
-        // If no match, split character by character
         if (!found) {
             string char_str(1, word[start]);
             if (vocab.find(char_str) != vocab.end()) {
