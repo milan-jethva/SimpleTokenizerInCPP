@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Function to load BPE vocabulary from a file
 unordered_map<string, int> load_vocab(const string& filename) {
     unordered_map<string, int> vocab;
     ifstream file(filename);
@@ -25,18 +24,15 @@ unordered_map<string, int> load_vocab(const string& filename) {
     return vocab;
 }
 
-// Function to tokenize text into token IDs using BPE vocab
 vector<int> tokenize(const string& text, const unordered_map<string, int>& bpe_vocab) {
     vector<int> token_ids;
     istringstream ss(text);
     string word;
 
     while (ss >> word) {
-        // Check if whole word exists in vocabulary
         if (bpe_vocab.find(word) != bpe_vocab.end()) {
             token_ids.push_back(bpe_vocab.at(word));
         } else {
-            // Split into characters if word is not in vocab
             for (char c : word) {
                 string char_str(1, c);
                 if (bpe_vocab.find(char_str) != bpe_vocab.end()) {
