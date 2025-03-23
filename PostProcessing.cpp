@@ -2,24 +2,22 @@
 #include <vector>
 #include <fstream>
 
-// Special token constants
-const int CLS_TOKEN = 101;  // [CLS]
-const int SEP_TOKEN = 102;  // [SEP]
-const int PAD_TOKEN = 0;    // [PAD]
+const int CLS_TOKEN = 101;  
+const int SEP_TOKEN = 102;  
+const int PAD_TOKEN = 0;  
 
-// Function to apply post-processing
 std::vector<int> postProcessTokens(const std::vector<int>& token_ids, int max_length = 10) {
     std::vector<int> processed_tokens = token_ids;
 
     // Add special tokens
-    processed_tokens.insert(processed_tokens.begin(), CLS_TOKEN);  // Add [CLS] at start
-    processed_tokens.push_back(SEP_TOKEN);  // Add [SEP] at end
+    processed_tokens.insert(processed_tokens.begin(), CLS_TOKEN); 
+    processed_tokens.push_back(SEP_TOKEN);  
 
     // Apply Padding or Truncation
     if (processed_tokens.size() < max_length) {
-        processed_tokens.resize(max_length, PAD_TOKEN);  // Pad with [PAD] tokens
+        processed_tokens.resize(max_length, PAD_TOKEN);  
     } else if (processed_tokens.size() > max_length) {
-        processed_tokens.resize(max_length);  // Truncate if too long
+        processed_tokens.resize(max_length);  
     }
 
     return processed_tokens;
